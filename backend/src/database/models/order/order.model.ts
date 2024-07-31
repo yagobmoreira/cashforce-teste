@@ -1,16 +1,16 @@
 import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
-import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
+import { type IOrder } from 'src/interfaces/orders/IOrder'
 
-interface BuyerCreationAttributes extends Optional<IBuyer, 'id'> {}
+interface OrderCreationAttributes extends Optional<IOrder, 'id'> {}
 
 @Table({
-  tableName: 'buyers',
+  tableName: 'orders',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'buyers'
+  modelName: 'orders'
 })
-export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
+export default class Order extends Model<IOrder, OrderCreationAttributes> {
   @AutoIncrement
   @PrimaryKey
   @Column({
@@ -23,115 +23,67 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
     type: DataType.STRING,
     allowNull: false
   })
-  declare name: string
+  declare orderNfId: string
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
+  declare orderNumber: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare tradingName: string
+  declare orderPath: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare cashforceTax: string
+  declare orderFileName: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare responsibleName: string
+  declare orderOriginalName: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare responsibleEmail: string
+  declare emissionDate: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare responsiblePosition: string
+  declare pdfFile: string
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
+  declare emitedTo: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare responsiblePhone: string
+  declare nNf: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare responsibleMobile: string
+  declare CTE: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare website: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare postalCode: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare address: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare number: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare complement: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare neighborhood: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare city: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare state: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare phoneNumber: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare situation: string
-
-  @Column({
-    type: DataType.STRING,
-    defaultValue: null
-  })
-  declare situationDate: string
+  declare value: string
 
   @Column({
     type: DataType.DATE,
@@ -152,14 +104,50 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
   declare cnpjId: number
 
   @Column({
-    type: DataType.TINYINT('1'),
-    defaultValue: 1
+    type: DataType.INTEGER('11'),
+    defaultValue: null
   })
-  declare confirm: number
+  declare userId: number
+
+  @Column({
+    type: DataType.INTEGER('11'),
+    defaultValue: null
+  })
+  declare buyerId: number
+
+  @Column({
+    type: DataType.INTEGER('11'),
+    defaultValue: null
+  })
+  declare providerId: number
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: '0'
+  })
+  declare orderStatusBuyer: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: '0'
+  })
+  declare orderStatusProvider: string
 
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  declare email: string
+  declare deliveryReceipt: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare cargoPackingList: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare deliveryCtrc: string
 }
