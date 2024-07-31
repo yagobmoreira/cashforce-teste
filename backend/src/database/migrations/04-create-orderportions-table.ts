@@ -1,47 +1,31 @@
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IOffer } from 'src/interfaces/offers/IOffer'
+import { type IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
 
 export default {
   async up (queryInterface: QueryInterface) {
-    await queryInterface.createTable<Model<IOffer>>('offers', {
+    await queryInterface.createTable<Model<IOrderPortion>>('orderportions', {
       id: {
         type: DataType.INTEGER('11'),
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
-      tax: {
+      nDup: {
         type: DataType.STRING,
         allowNull: false
       },
-      tariff: {
+      dVenc: {
         type: DataType.STRING,
         allowNull: false
       },
-      adValorem: {
+      vDup: {
         type: DataType.STRING,
         allowNull: false
       },
-      float: {
-        type: DataType.STRING,
-        allowNull: false
-      },
-      iof: {
-        type: DataType.STRING,
-        allowNull: false
-      },
-      expiresIn: {
-        type: DataType.DATE,
-        allowNull: false
-      },
-      paymentStatusSponsor: {
+      availableToMarket: {
         type: DataType.TINYINT('1'),
-        defaultValue: 0
-      },
-      paymentStatusProvider: {
-        type: DataType.TINYINT('1'),
-        defaultValue: 0
+        defaultValue: 1
       },
       createdAt: {
         type: DataType.DATE,
@@ -54,14 +38,10 @@ export default {
       orderId: {
         type: DataType.INTEGER('11'),
         defaultValue: null
-      },
-      sponsorId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
       }
     })
   },
   async down (queryInterface: QueryInterface) {
-    await queryInterface.dropTable('offers')
+    await queryInterface.dropTable('orderportions')
   }
 }
