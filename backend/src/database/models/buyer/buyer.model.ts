@@ -14,7 +14,8 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
   @AutoIncrement
   @PrimaryKey
   @Column({
-    type: DataType.INTEGER('11')
+    type: DataType.INTEGER('11'),
+    allowNull: false
   })
   declare id: CreationOptional<number>
 

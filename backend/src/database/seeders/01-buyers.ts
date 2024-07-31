@@ -16,5 +16,8 @@ export default {
         }
       ]
     )
+  },
+  async down (queryInterface: QueryInterface) {
+    await queryInterface.bulkDelete('buyers', {})
   }
 }
