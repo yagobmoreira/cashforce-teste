@@ -7,7 +7,7 @@
     "rootDir": "./src",
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": ".", 
+    "baseUrl": "./", 
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -16,7 +16,8 @@
     "esModuleInterop": true,
     "lib": ["es2023"],
     "paths": {
-      "*": ["node_modules/*"]
+      "*": ["node_modules/*"],
+      "src/*": ["src/*"]
     }
   },
   "include": ["src/**/*"],
