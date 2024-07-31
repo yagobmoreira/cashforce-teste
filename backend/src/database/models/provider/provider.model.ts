@@ -1,20 +1,20 @@
+import { CreationOptional, type Optional } from 'sequelize'
 import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
-import { type CreationOptional, type Optional } from 'sequelize'
-import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
+import { type IProvider } from 'src/interfaces/providers/IProvider'
 
-interface BuyerCreationAttributes extends Optional<IBuyer, 'id'> {}
+interface ProviderCreationAttributes extends Optional<IProvider, 'id'> {}
 
 @Table({
-  tableName: 'buyers',
+  tableName: 'providers',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'buyers'
+  modelName: 'providers'
 })
-export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
+export default class Provider extends Model<IProvider, ProviderCreationAttributes> {
   @AutoIncrement
   @PrimaryKey
   @Column({
-    type: DataType.INTEGER('11'),
+    type: DataType.INTEGER({ length: 11 }),
     allowNull: false
   })
   declare id: CreationOptional<number>
@@ -119,6 +119,30 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
     type: DataType.STRING,
     defaultValue: null
   })
+  declare bank: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare bankAgency: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare account: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare documents: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
   declare phoneNumber: string
 
   @Column({
@@ -150,12 +174,6 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
     defaultValue: null
   })
   declare cnpjId: number
-
-  @Column({
-    type: DataType.TINYINT('1'),
-    defaultValue: 1
-  })
-  declare confirm: number
 
   @Column({
     type: DataType.STRING,
