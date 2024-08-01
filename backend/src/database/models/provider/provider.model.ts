@@ -1,6 +1,7 @@
 import { CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type IProvider } from 'src/interfaces/providers/IProvider'
+import Cnpj from '../cnpj/cnpj.model'
 
 interface ProviderCreationAttributes extends Optional<IProvider, 'id'> {}
 
@@ -171,8 +172,15 @@ export default class Provider extends Model<IProvider, ProviderCreationAttribute
 
   @Column({
     type: DataType.INTEGER({ length: 11 }),
-    defaultValue: null
+    defaultValue: null,
+    references: {
+      model: Cnpj,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   })
+  @ForeignKey(() => Cnpj)
   declare cnpjId: number
 
   @Column({

@@ -17,7 +17,8 @@ export default {
       },
       email: {
         type: DataType.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       phoneNumber: {
         type: DataType.STRING,

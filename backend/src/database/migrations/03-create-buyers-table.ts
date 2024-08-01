@@ -9,7 +9,7 @@ export default {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataType.INTEGER('11')
+        type: DataType.INTEGER({ length: 11 })
       },
       name: {
         allowNull: false,
@@ -96,11 +96,19 @@ export default {
         allowNull: false
       },
       cnpjId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: {
+            tableName: 'cnpjs'
+          },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       confirm: {
-        type: DataType.TINYINT('11'),
+        type: DataType.TINYINT({ length: 1 }),
         defaultValue: 1
       },
       email: {
@@ -110,6 +118,6 @@ export default {
     })
   },
   async down (queryInterface: QueryInterface) {
-    await queryInterface.dropTable('teams')
+    await queryInterface.dropTable('buyers')
   }
 }

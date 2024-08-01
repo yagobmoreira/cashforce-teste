@@ -1,6 +1,7 @@
 import { CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type ISponsor } from 'src/interfaces/sponsors/ISponsor'
+import Cnpj from '../cnpj/cnpj.model'
 
 interface SponsorCreationAttributes extends Optional<ISponsor, 'id'> {}
 
@@ -165,8 +166,15 @@ export default class Sponsor extends Model<ISponsor, SponsorCreationAttributes> 
 
   @Column({
     type: DataType.INTEGER({ length: 11 }),
-    defaultValue: null
+    defaultValue: null,
+    references: {
+      model: Cnpj,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   })
+  @ForeignKey(() => Cnpj)
   declare cnpjId: number
 
   @Column({

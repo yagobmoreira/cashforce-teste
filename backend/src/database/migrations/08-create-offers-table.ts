@@ -6,7 +6,7 @@ export default {
   async up (queryInterface: QueryInterface) {
     await queryInterface.createTable<Model<IOffer>>('offers', {
       id: {
-        type: DataType.INTEGER('11'),
+        type: DataType.INTEGER({ length: 11 }),
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
@@ -36,11 +36,11 @@ export default {
         allowNull: false
       },
       paymentStatusSponsor: {
-        type: DataType.TINYINT('1'),
+        type: DataType.TINYINT({ length: 1 }),
         defaultValue: 0
       },
       paymentStatusProvider: {
-        type: DataType.TINYINT('1'),
+        type: DataType.TINYINT({ length: 1 }),
         defaultValue: 0
       },
       createdAt: {
@@ -52,12 +52,24 @@ export default {
         allowNull: false
       },
       orderId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: { tableName: 'orders' },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       sponsorId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: { tableName: 'sponsors' },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       }
     })
   },

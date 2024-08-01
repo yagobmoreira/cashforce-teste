@@ -113,7 +113,15 @@ export default {
       },
       cnpjId: {
         type: DataType.INTEGER({ length: 11 }),
-        defaultValue: null
+        defaultValue: null,
+        references: {
+          model: {
+            tableName: 'cnpjs'
+          },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       email: {
         type: DataType.STRING,

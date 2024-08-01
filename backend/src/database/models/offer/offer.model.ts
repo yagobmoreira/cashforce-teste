@@ -1,6 +1,8 @@
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
 import { type IOffer } from 'src/interfaces/offers/IOffer'
+import Order from '../order/order.model'
+import Sponsor from '../sponsors/sponsor.model'
 
 interface OfferCreationAttributes extends Optional<IOffer, 'id'> {}
 
@@ -14,7 +16,7 @@ export default class Offer extends Model<IOffer, OfferCreationAttributes> {
   @AutoIncrement
   @PrimaryKey
   @Column({
-    type: DataType.INTEGER('11'),
+    type: DataType.INTEGER({ length: 11 }),
     allowNull: false
   })
   declare id: CreationOptional<number>
@@ -56,13 +58,13 @@ export default class Offer extends Model<IOffer, OfferCreationAttributes> {
   declare expiresIn: Date
 
   @Column({
-    type: DataType.TINYINT('1'),
+    type: DataType.TINYINT({ length: 1 }),
     defaultValue: 0
   })
   declare paymentStatusSponsor: number
 
   @Column({
-    type: DataType.TINYINT('1'),
+    type: DataType.TINYINT({ length: 1 }),
     defaultValue: 0
   })
   declare paymentStatusProvider: number
@@ -80,14 +82,28 @@ export default class Offer extends Model<IOffer, OfferCreationAttributes> {
   declare updatedAt: Date
 
   @Column({
-    type: DataType.INTEGER('11'),
-    defaultValue: null
+    type: DataType.INTEGER({ length: 11 }),
+    defaultValue: null,
+    references: {
+      model: Order,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   })
+  @ForeignKey(() => Order)
   declare orderId: number
 
   @Column({
-    type: DataType.INTEGER('11'),
-    defaultValue: null
+    type: DataType.INTEGER({ length: 11 }),
+    defaultValue: null,
+    references: {
+      model: Sponsor,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   })
+  @ForeignKey(() => Sponsor)
   declare sponsorId: number
 }

@@ -6,14 +6,15 @@ export default {
   async up (queryInterface: QueryInterface) {
     await queryInterface.createTable<Model<IOrder>>('orders', {
       id: {
-        type: DataType.INTEGER('11'),
+        type: DataType.INTEGER({ length: 11 }),
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
       orderNfId: {
         type: DataType.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       orderNumber: {
         type: DataType.STRING,
@@ -21,15 +22,18 @@ export default {
       },
       orderPath: {
         type: DataType.STRING,
-        defaultValue: null
+        defaultValue: null,
+        unique: true
       },
       orderFileName: {
         type: DataType.STRING,
-        defaultValue: null
+        defaultValue: null,
+        unique: true
       },
       orderOriginalName: {
         type: DataType.STRING,
-        defaultValue: null
+        defaultValue: null,
+        unique: true
       },
       emissionDate: {
         type: DataType.STRING,
@@ -64,20 +68,44 @@ export default {
         allowNull: false
       },
       cnpjId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: { tableName: 'cnpjs' },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       userId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: { tableName: 'users' },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       buyerId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: { tableName: 'buyers' },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       providerId: {
-        type: DataType.INTEGER('11'),
-        defaultValue: null
+        type: DataType.INTEGER({ length: 11 }),
+        defaultValue: null,
+        references: {
+          model: { tableName: 'providers' },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       orderStatusBuyer: {
         type: DataType.STRING,

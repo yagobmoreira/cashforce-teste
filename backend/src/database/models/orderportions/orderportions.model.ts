@@ -1,6 +1,7 @@
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
 import { type IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
+import Order from '../order/order.model'
 
 interface OrderPortionCreationAttributes extends Optional<IOrderPortion, 'id'> {}
 
@@ -14,7 +15,7 @@ export default class OrderPortion extends Model<IOrderPortion, OrderPortionCreat
   @AutoIncrement
   @PrimaryKey
   @Column({
-    type: DataType.INTEGER('11'),
+    type: DataType.INTEGER({ length: 11 }),
     allowNull: false
   })
   declare id: CreationOptional<number>
@@ -38,7 +39,7 @@ export default class OrderPortion extends Model<IOrderPortion, OrderPortionCreat
   declare vDup: string
 
   @Column({
-    type: DataType.TINYINT('1'),
+    type: DataType.TINYINT({ length: 1 }),
     defaultValue: 1
   })
   declare availableToMarket: number
@@ -56,8 +57,15 @@ export default class OrderPortion extends Model<IOrderPortion, OrderPortionCreat
   declare updatedAt: Date
 
   @Column({
-    type: DataType.INTEGER('11'),
-    defaultValue: null
+    type: DataType.INTEGER({ length: 11 }),
+    defaultValue: null,
+    references: {
+      model: Order,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   })
+  @ForeignKey(() => Order)
   declare orderId: number
 }

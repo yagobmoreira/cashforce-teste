@@ -1,20 +1,20 @@
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
 import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
+import Cnpj from '../cnpj/cnpj.model'
 
 interface BuyerCreationAttributes extends Optional<IBuyer, 'id'> {}
 
 @Table({
   tableName: 'buyers',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  modelName: 'buyers'
+  updatedAt: 'updatedAt'
 })
 export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
   @AutoIncrement
   @PrimaryKey
   @Column({
-    type: DataType.INTEGER('11'),
+    type: DataType.INTEGER({ length: 11 }),
     allowNull: false
   })
   declare id: CreationOptional<number>
@@ -147,12 +147,19 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
 
   @Column({
     type: DataType.INTEGER({ length: 11 }),
-    defaultValue: null
+    defaultValue: null,
+    references: {
+      model: Cnpj,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   })
+  @ForeignKey(() => Cnpj)
   declare cnpjId: number
 
   @Column({
-    type: DataType.TINYINT('1'),
+    type: DataType.TINYINT({ length: 1 }),
     defaultValue: 1
   })
   declare confirm: number

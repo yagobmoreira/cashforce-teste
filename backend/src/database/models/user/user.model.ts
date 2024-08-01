@@ -1,5 +1,5 @@
 import { CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table, Unique } from 'sequelize-typescript'
 import { type IUser } from 'src/interfaces/users/IUser'
 
 interface UserCreationAttributes extends Optional<IUser, 'id'> {}
@@ -29,6 +29,7 @@ export default class User extends Model<IUser, UserCreationAttributes> {
     type: DataType.STRING,
     allowNull: false
   })
+  @Unique
   declare email: string
 
   @Column({

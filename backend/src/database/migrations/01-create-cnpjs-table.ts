@@ -9,11 +9,12 @@ export default {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataType.INTEGER('11')
+        type: DataType.INTEGER({ length: 11 })
       },
       cnpj: {
         allowNull: false,
-        type: DataType.STRING
+        type: DataType.STRING,
+        unique: true
       },
       companyType: {
         allowNull: false,
