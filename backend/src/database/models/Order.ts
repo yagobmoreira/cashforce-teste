@@ -1,33 +1,32 @@
-import { type CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table, Unique } from 'sequelize-typescript'
+import { Column, DataType, ForeignKey, Model, Table, Unique } from 'sequelize-typescript'
 import { type IOrder } from 'src/interfaces/orders/IOrder'
-import Buyer from '../buyer/buyer.model'
-import Cnpj from '../cnpj/cnpj.model'
-import Provider from '../provider/provider.model'
-import User from '../user/user.model'
+import Buyer from './Buyer'
+import Cnpj from './Cnpj'
+import Provider from './Provider'
+import User from './User'
 
-interface OrderCreationAttributes extends Optional<IOrder, 'id'> {}
+// interface OrderCreationAttributes extends Optional<IOrder, 'id'> {}
 
 @Table({
   tableName: 'orders',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'orders'
+  modelName: 'Order'
 })
-export default class Order extends Model<IOrder, OrderCreationAttributes> {
-  @AutoIncrement
-  @PrimaryKey
+export default class Order extends Model<IOrder> {
   @Column({
     type: DataType.INTEGER({ length: 11 }),
-    allowNull: false
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
   })
-  declare id: CreationOptional<number>
+  declare id: number
 
+  @Unique
   @Column({
     type: DataType.STRING,
     allowNull: false
   })
-  @Unique
   declare orderNfId: string
 
   @Column({
@@ -36,25 +35,25 @@ export default class Order extends Model<IOrder, OrderCreationAttributes> {
   })
   declare orderNumber: string
 
+  @Unique
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  @Unique
   declare orderPath: string
 
+  @Unique
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  @Unique
   declare orderFileName: string
 
+  @Unique
   @Column({
     type: DataType.STRING,
     defaultValue: null
   })
-  @Unique
   declare orderOriginalName: string
 
   @Column({
@@ -105,56 +104,56 @@ export default class Order extends Model<IOrder, OrderCreationAttributes> {
   })
   declare updatedAt: Date
 
+  @ForeignKey(() => Cnpj)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Cnpj,
+      model: 'cnpjs',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Cnpj)
   declare cnpjId: number
 
+  @ForeignKey(() => User)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: User,
+      model: 'users',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => User)
   declare userId: number
 
+  @ForeignKey(() => Buyer)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Buyer,
+      model: 'buyers',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Buyer)
   declare buyerId: number
 
+  @ForeignKey(() => Provider)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Provider,
+      model: 'providers',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Provider)
   declare providerId: number
 
   @Column({

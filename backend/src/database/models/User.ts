@@ -8,7 +8,7 @@ interface UserCreationAttributes extends Optional<IUser, 'id'> {}
   tableName: 'users',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'users'
+  modelName: 'User'
 })
 export default class User extends Model<IUser, UserCreationAttributes> {
   @AutoIncrement
@@ -25,11 +25,11 @@ export default class User extends Model<IUser, UserCreationAttributes> {
   })
   declare name: string
 
+  @Unique
   @Column({
     type: DataType.STRING,
     allowNull: false
   })
-  @Unique
   declare email: string
 
   @Column({

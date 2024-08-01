@@ -1,8 +1,8 @@
 import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
 import { type IOffer } from 'src/interfaces/offers/IOffer'
-import Order from '../order/order.model'
-import Sponsor from '../sponsors/sponsor.model'
+import Order from './Order'
+import Sponsor from './Sponsor'
 
 interface OfferCreationAttributes extends Optional<IOffer, 'id'> {}
 
@@ -10,7 +10,7 @@ interface OfferCreationAttributes extends Optional<IOffer, 'id'> {}
   tableName: 'offers',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'offers'
+  modelName: 'Offer'
 })
 export default class Offer extends Model<IOffer, OfferCreationAttributes> {
   @AutoIncrement
@@ -81,29 +81,29 @@ export default class Offer extends Model<IOffer, OfferCreationAttributes> {
   })
   declare updatedAt: Date
 
+  @ForeignKey(() => Order)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Order,
+      model: 'orders',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Order)
   declare orderId: number
 
+  @ForeignKey(() => Sponsor)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Sponsor,
+      model: 'sponsors',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Sponsor)
   declare sponsorId: number
 }

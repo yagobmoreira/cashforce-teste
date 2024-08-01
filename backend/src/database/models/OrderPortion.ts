@@ -1,7 +1,7 @@
 import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
 import { type IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
-import Order from '../order/order.model'
+import Order from './Order'
 
 interface OrderPortionCreationAttributes extends Optional<IOrderPortion, 'id'> {}
 
@@ -9,7 +9,7 @@ interface OrderPortionCreationAttributes extends Optional<IOrderPortion, 'id'> {
   tableName: 'orderportions',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'orderportions'
+  modelName: 'OrderPortion'
 })
 export default class OrderPortion extends Model<IOrderPortion, OrderPortionCreationAttributes> {
   @AutoIncrement
@@ -56,16 +56,16 @@ export default class OrderPortion extends Model<IOrderPortion, OrderPortionCreat
   })
   declare updatedAt: Date
 
+  @ForeignKey(() => Order)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Order,
+      model: 'orders',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Order)
   declare orderId: number
 }

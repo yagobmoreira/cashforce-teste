@@ -1,29 +1,26 @@
-import { CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table, Unique } from 'sequelize-typescript'
+import { Column, DataType, Model, Table, Unique } from 'sequelize-typescript'
 import { type ICnpj } from 'src/interfaces/cnpjs/ICnpj'
 
-interface CnpjCreationAttributes extends Optional<ICnpj, 'id'> {}
-
 @Table({
-  tableName: 'cnpjs',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  modelName: 'cnpjs'
+  tableName: 'cnpjs',
+  modelName: 'Cnpj'
 })
-export default class Cnpj extends Model<ICnpj, CnpjCreationAttributes> {
-  @AutoIncrement
-  @PrimaryKey
+export default class Cnpj extends Model<ICnpj> {
   @Column({
     type: DataType.INTEGER({ length: 11 }),
-    allowNull: false
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
   })
-  declare id: CreationOptional<number>
+  declare id: number
 
+  @Unique
   @Column({
     type: DataType.STRING,
     allowNull: false
   })
-  @Unique
   declare cnpj: string
 
   @Column({

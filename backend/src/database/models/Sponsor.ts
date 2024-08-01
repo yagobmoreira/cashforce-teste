@@ -1,16 +1,17 @@
+import { CreationOptional, type Optional } from 'sequelize'
 import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
-import { type CreationOptional, type Optional } from 'sequelize'
-import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
-import Cnpj from '../cnpj/cnpj.model'
+import { type ISponsor } from 'src/interfaces/sponsors/ISponsor'
+import Cnpj from './Cnpj'
 
-interface BuyerCreationAttributes extends Optional<IBuyer, 'id'> {}
+interface SponsorCreationAttributes extends Optional<ISponsor, 'id'> {}
 
 @Table({
-  tableName: 'buyers',
+  tableName: 'sponsors',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  modelName: 'Sponsor'
 })
-export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
+export default class Sponsor extends Model<ISponsor, SponsorCreationAttributes> {
   @AutoIncrement
   @PrimaryKey
   @Column({
@@ -119,6 +120,24 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
     type: DataType.STRING,
     defaultValue: null
   })
+  declare bank: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare bankAgency: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
+  declare account: string
+
+  @Column({
+    type: DataType.STRING,
+    defaultValue: null
+  })
   declare phoneNumber: string
 
   @Column({
@@ -145,24 +164,18 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
   })
   declare updatedAt: Date
 
+  @ForeignKey(() => Cnpj)
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     defaultValue: null,
     references: {
-      model: Cnpj,
+      model: 'cnpjs',
       key: 'id'
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   })
-  @ForeignKey(() => Cnpj)
   declare cnpjId: number
-
-  @Column({
-    type: DataType.TINYINT({ length: 1 }),
-    defaultValue: 1
-  })
-  declare confirm: number
 
   @Column({
     type: DataType.STRING,
