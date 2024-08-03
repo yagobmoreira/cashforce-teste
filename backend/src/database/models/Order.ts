@@ -1,4 +1,4 @@
-import { Column, DataType, ForeignKey, Model, Table, Unique } from 'sequelize-typescript'
+import { BelongsTo, Column, DataType, ForeignKey, Model, Table, Unique } from 'sequelize-typescript'
 import { type IOrder } from 'src/interfaces/orders/IOrder'
 import Buyer from './Buyer'
 import Cnpj from './Cnpj'
@@ -185,4 +185,16 @@ export default class Order extends Model<IOrder> {
     defaultValue: null
   })
   declare deliveryCtrc: string
+
+  @BelongsTo(() => Buyer)
+  declare buyer: Buyer
+
+  @BelongsTo(() => Cnpj)
+  declare cnpj: Cnpj
+
+  @BelongsTo(() => User)
+  declare user: User
+
+  @BelongsTo(() => Provider)
+  declare provider: Provider
 }

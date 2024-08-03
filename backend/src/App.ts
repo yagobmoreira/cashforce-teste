@@ -1,6 +1,7 @@
 import express from 'express'
 import router from './routes'
 import './database/config/connection'
+import cors from 'cors'
 export class App {
   public app: express.Express
 
@@ -9,8 +10,10 @@ export class App {
 
     this.config()
     this.routes()
-
+    this.app.disable('x-powered-by')
+    this.app.use(express.urlencoded({ extended: true }))
     this.app.use(express.json())
+    this.app.use(cors())
 
     this.app.get('/', (req, res) => res.json({ ok: true }))
 

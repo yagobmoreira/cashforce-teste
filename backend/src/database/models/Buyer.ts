@@ -1,5 +1,5 @@
-import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
+import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
 import Cnpj from './Cnpj'
 
@@ -170,4 +170,7 @@ export default class Buyer extends Model<IBuyer, BuyerCreationAttributes> {
     defaultValue: null
   })
   declare email: string
+
+  @BelongsTo(() => Cnpj)
+  declare cnpj: Cnpj
 }

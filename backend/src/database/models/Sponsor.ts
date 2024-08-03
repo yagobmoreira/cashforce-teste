@@ -1,5 +1,5 @@
 import { CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type ISponsor } from 'src/interfaces/sponsors/ISponsor'
 import Cnpj from './Cnpj'
 
@@ -182,4 +182,7 @@ export default class Sponsor extends Model<ISponsor, SponsorCreationAttributes> 
     defaultValue: null
   })
   declare email: string
+
+  @BelongsTo(() => Cnpj)
+  declare cnpj: Cnpj
 }

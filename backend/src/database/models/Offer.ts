@@ -1,4 +1,4 @@
-import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
 import { type IOffer } from 'src/interfaces/offers/IOffer'
 import Order from './Order'
@@ -106,4 +106,10 @@ export default class Offer extends Model<IOffer, OfferCreationAttributes> {
     onDelete: 'SET NULL'
   })
   declare sponsorId: number
+
+  @BelongsTo(() => Order)
+  declare order: Order
+
+  @BelongsTo(() => Sponsor)
+  declare sponsor: Sponsor
 }

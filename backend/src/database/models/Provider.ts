@@ -1,5 +1,5 @@
 import { CreationOptional, type Optional } from 'sequelize'
-import { AutoIncrement, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
+import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type IProvider } from 'src/interfaces/providers/IProvider'
 import Cnpj from './Cnpj'
 
@@ -188,4 +188,7 @@ export default class Provider extends Model<IProvider, ProviderCreationAttribute
     defaultValue: null
   })
   declare email: string
+
+  @BelongsTo(() => Cnpj)
+  declare cnpj: Cnpj
 }
