@@ -31,7 +31,7 @@ export default class CnpjController {
   public async updateCnpj (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.cnpjService.getCnpjById(Number(id))
+    const { status, data } = await this.cnpjService.updateCnpj(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

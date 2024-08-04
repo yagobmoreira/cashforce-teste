@@ -31,7 +31,7 @@ export default class OrderPortionController {
   public async updateOrderPortion (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.orderPortionService.getOrderPortionById(Number(id))
+    const { status, data } = await this.orderPortionService.updateOrderPortion(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

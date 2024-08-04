@@ -8,8 +8,8 @@ const sequelize = new Sequelize({
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',
-  logging: true,
-  models: [path.join(__dirname, '..', 'models')]
+  models: [path.join(__dirname, '..', 'models')],
+  logging: false
 })
 
 export default sequelize

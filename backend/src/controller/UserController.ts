@@ -31,7 +31,7 @@ export default class UserController {
   public async updateUser (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.userService.getUserById(Number(id))
+    const { status, data } = await this.userService.updateUser(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

@@ -31,7 +31,7 @@ export default class SponsorController {
   public async updateSponsor (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.sponsorService.getSponsorById(Number(id))
+    const { status, data } = await this.sponsorService.updateSponsor(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

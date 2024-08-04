@@ -31,7 +31,7 @@ export default class OfferController {
   public async updateOffer (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.offerService.getOfferById(Number(id))
+    const { status, data } = await this.offerService.updateOffer(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

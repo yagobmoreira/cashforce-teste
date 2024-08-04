@@ -32,10 +32,11 @@ export default class OrderService {
   public async updateOrder (id: number, order: NewEntity<IOrder>): Promise<ServiceResponse<ServiceMessage>> {
     const foundOrder = await this.orderModel.findById(id)
 
-    if (foundOrder == null) return { status: 'NOT_FOUND', data: { message: `Order ${id} not found` } }
+    if (foundOrder == null) {
+      return { status: 'NOT_FOUND', data: { message: `Order ${id} not found` } }
+    }
 
     await this.orderModel.update(id, order)
-
     return { status: 'SUCCESSFUL', data: { message: 'Order updated' } }
   }
 }

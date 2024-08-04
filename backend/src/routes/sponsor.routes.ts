@@ -16,7 +16,7 @@ router.get(
   (req: Request, res: Response) => sponsorController.getSponsorById(req, res)
 )
 
-router.patch(
+router.put(
   '/:id',
   (req: Request, res: Response) => sponsorController.updateSponsor(req, res)
 )

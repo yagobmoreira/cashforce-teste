@@ -31,7 +31,7 @@ export default class OrderController {
   public async updateOrder (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.orderService.getOrderById(Number(id))
+    const { status, data } = await this.orderService.updateOrder(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

@@ -31,7 +31,7 @@ export default class ProviderController {
   public async updateProvider (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.providerService.getProviderById(Number(id))
+    const { status, data } = await this.providerService.updateProvider(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)

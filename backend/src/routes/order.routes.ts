@@ -16,7 +16,7 @@ router.get(
   (req: Request, res: Response) => orderController.getOrderById(req, res)
 )
 
-router.patch(
+router.put(
   '/:id',
   (req: Request, res: Response) => orderController.updateOrder(req, res)
 )

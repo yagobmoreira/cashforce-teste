@@ -10,7 +10,7 @@ const config: Options = {
   dialectOptions: {
     timezone: 'Z'
   },
-  logging: true
+  logging: false
 }
 
 export = config

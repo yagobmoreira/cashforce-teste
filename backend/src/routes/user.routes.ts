@@ -16,7 +16,7 @@ router.get(
   (req: Request, res: Response) => userController.getUserById(req, res)
 )
 
-router.patch(
+router.put(
   '/:id',
   (req: Request, res: Response) => userController.updateUser(req, res)
 )

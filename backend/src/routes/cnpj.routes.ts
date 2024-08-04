@@ -16,7 +16,7 @@ router.get(
   (req: Request, res: Response) => cnpjController.getCnpjById(req, res)
 )
 
-router.patch(
+router.put(
   '/:id',
   (req: Request, res: Response) => cnpjController.updateCnpj(req, res)
 )

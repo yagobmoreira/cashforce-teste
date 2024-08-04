@@ -31,7 +31,7 @@ export default class BuyerController {
   public async updateBuyer (req: Request, res: Response) {
     const { id } = req.params
 
-    const { status, data } = await this.buyerService.getBuyerById(Number(id))
+    const { status, data } = await this.buyerService.updateBuyer(Number(id), req.body)
 
     if (status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(status)).json(data)
