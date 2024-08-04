@@ -4,8 +4,9 @@ import Buyer from './Buyer'
 import Cnpj from './Cnpj'
 import Provider from './Provider'
 import User from './User'
+import { type Optional } from 'sequelize'
 
-// interface OrderCreationAttributes extends Optional<IOrder, 'id'> {}
+interface OrderCreationAttributes extends Optional<IOrder, 'id'> {}
 
 @Table({
   tableName: 'orders',
@@ -13,7 +14,7 @@ import User from './User'
   updatedAt: 'updatedAt',
   modelName: 'Order'
 })
-export default class Order extends Model<IOrder> {
+export default class Order extends Model<IOrder, OrderCreationAttributes> {
   @Column({
     type: DataType.INTEGER({ length: 11 }),
     allowNull: false,

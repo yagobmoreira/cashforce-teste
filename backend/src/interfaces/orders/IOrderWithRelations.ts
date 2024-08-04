@@ -4,5 +4,5 @@ import { type IOrder } from './IOrder'
 
 export interface IOrderWithRelations extends IOrder {
   Buyer: Pick<IBuyer, 'id' | 'name'>
-  Provider: Pick<IProvider, 'id' | 'name'>
+  Provider: Pick<IProvider, 'id' | 'name' | 'tradingName' | 'website' | 'phoneNumber' | 'email' | 'responsibleName'>
 }

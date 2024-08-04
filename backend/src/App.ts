@@ -2,7 +2,7 @@ import express from 'express'
 import router from './routes'
 import './database/config/connection'
 import cors from 'cors'
-export class App {
+class App {
   public app: express.Express
 
   constructor () {
@@ -39,3 +39,7 @@ export class App {
     this.app.listen(PORT, () => { console.log(`Running on port ${PORT}`) })
   }
 }
+
+export { App }
+
+export const { app } = new App()
