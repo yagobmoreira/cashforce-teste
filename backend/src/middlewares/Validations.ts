@@ -16,7 +16,11 @@ class Validations {
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 export default Validations
+=======
+export default Validations;
+>>>>>>> Stashed changes
 =======
 export default Validations;
 >>>>>>> Stashed changes
