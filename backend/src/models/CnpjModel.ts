@@ -1,12 +1,14 @@
+import Cnpj from 'src/database/models/Cnpj'
 import Provider from 'src/database/models/Provider'
 import { NewEntity, type ID } from 'src/interfaces'
+import { ICnpj } from 'src/interfaces/cnpjs/ICnpj'
+import { ICnpjModel } from 'src/interfaces/cnpjs/ICnpjModel'
 import { type IProvider } from 'src/interfaces/providers/IProvider'
-import { type IProviderModel } from 'src/interfaces/providers/IProviderModel'
 
-export default class ProviderModel implements IProviderModel {
-  private readonly model = Provider
+export default class CnpjModel implements ICnpjModel {
+  private readonly model = Cnpj
 
-  async findById (id: ID): Promise<IProvider | null> {
+  async findById (id: ID): Promise<ICnpj | null> {
     const dbData = await this.model.findByPk(id)
 
     if (dbData === null) return null
@@ -14,13 +16,13 @@ export default class ProviderModel implements IProviderModel {
     return dbData.dataValues
   }
 
-  async findAll (): Promise<IProvider[]> {
+  async findAll (): Promise<ICnpj[]> {
     const dbData = await this.model.findAll()
 
     return dbData
   }
 
-  async update (id: number, data: Partial<IProvider>): Promise<IProvider | null> {
+  async update (id: number, data: Partial<ICnpj>): Promise<ICnpj | null> {
     const [affectedRows] = await this.model.update(data, { where: { id } })
 
     if (affectedRows === 0) return null
@@ -28,7 +30,7 @@ export default class ProviderModel implements IProviderModel {
     return await this.findById(id)
   }
 
-  async create (data: NewEntity<IProvider>): Promise<IProvider> {
+  async create (data: NewEntity<ICnpj>): Promise<ICnpj> {
     const dbData = await this.model.create(data)
     return dbData
   }

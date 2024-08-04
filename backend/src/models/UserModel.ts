@@ -1,12 +1,13 @@
 import Provider from 'src/database/models/Provider'
+import User from 'src/database/models/User'
 import { NewEntity, type ID } from 'src/interfaces'
-import { type IProvider } from 'src/interfaces/providers/IProvider'
-import { type IProviderModel } from 'src/interfaces/providers/IProviderModel'
+import { IUser } from 'src/interfaces/users/IUser'
+import { IUserModel } from 'src/interfaces/users/IUserModel'
 
-export default class ProviderModel implements IProviderModel {
-  private readonly model = Provider
+export default class UserModel implements IUserModel {
+  private readonly model = User
 
-  async findById (id: ID): Promise<IProvider | null> {
+  async findById (id: ID): Promise<IUser | null> {
     const dbData = await this.model.findByPk(id)
 
     if (dbData === null) return null
@@ -14,13 +15,13 @@ export default class ProviderModel implements IProviderModel {
     return dbData.dataValues
   }
 
-  async findAll (): Promise<IProvider[]> {
+  async findAll (): Promise<IUser[]> {
     const dbData = await this.model.findAll()
 
     return dbData
   }
 
-  async update (id: number, data: Partial<IProvider>): Promise<IProvider | null> {
+  async update (id: number, data: Partial<IUser>): Promise<IUser | null> {
     const [affectedRows] = await this.model.update(data, { where: { id } })
 
     if (affectedRows === 0) return null
@@ -28,7 +29,7 @@ export default class ProviderModel implements IProviderModel {
     return await this.findById(id)
   }
 
-  async create (data: NewEntity<IProvider>): Promise<IProvider> {
+  async create (data: NewEntity<IUser>): Promise<IUser> {
     const dbData = await this.model.create(data)
     return dbData
   }
