@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import ProviderModel from 'src/models/ProviderModel'
-import { IProviderModel } from 'src/interfaces/providers/IProviderModel'
-import { IProvider } from 'src/interfaces/providers/IProvider'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import ProviderModel from '../models/ProviderModel'
+import { IProviderModel } from '../interfaces/providers/IProviderModel'
+import { IProvider } from '../interfaces/providers/IProvider'
 
 export default class ProviderService {
   constructor (

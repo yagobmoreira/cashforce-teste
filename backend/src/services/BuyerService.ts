@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import { IBuyer } from 'src/interfaces/buyers/IBuyer'
-import { IBuyerModel } from 'src/interfaces/buyers/IBuyerModel'
-import BuyerModel from 'src/models/BuyerModel'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import { IBuyer } from '../interfaces/buyers/IBuyer'
+import { IBuyerModel } from '../interfaces/buyers/IBuyerModel'
+import BuyerModel from '../models/BuyerModel'
 
 export default class BuyerService {
   constructor (

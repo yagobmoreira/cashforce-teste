@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import type { Cedente } from '~/src/interfaces/Cedente';
+import type { Cedente } from '~/../interfaces/Cedente';
 
 export default defineComponent({
   name: 'CedenteModal',

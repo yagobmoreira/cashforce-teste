@@ -1,6 +1,6 @@
+import { IBuyer } from 'interfaces/buyers/IBuyer'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
 
 export default {
   async up (queryInterface: QueryInterface) {

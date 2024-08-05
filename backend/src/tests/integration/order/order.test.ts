@@ -3,10 +3,9 @@ import chaiModule, { expect } from 'chai'
 import chaiHttp from 'chai-http'
 
 import { app } from '../../../App'
-import OrderModel from 'src/models/OrderModel'
-import Order from 'src/database/models/Order'
-import orderMock from 'src/tests/mocks/order.mock'
 import { afterEach } from 'mocha'
+import Order from 'database/models/Order'
+import orderMock from 'tests/mocks/order.mock'
 
 const chai = chaiModule.use(chaiHttp)
 

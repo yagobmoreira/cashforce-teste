@@ -1,10 +1,10 @@
-import Buyer from 'src/database/models/Buyer'
-import Order from 'src/database/models/Order'
-import Provider from 'src/database/models/Provider'
-import { type NewEntity, type ID } from 'src/interfaces'
-import { type IOrder } from 'src/interfaces/orders/IOrder'
-import { type IOrderModel } from 'src/interfaces/orders/IOrderModel'
-import { type IOrderWithRelations } from 'src/interfaces/orders/IOrderWithRelations'
+import Buyer from '../database/models/Buyer'
+import Order from '../database/models/Order'
+import Provider from '../database/models/Provider'
+import { type NewEntity, type ID } from '../interfaces'
+import { type IOrder } from '../interfaces/orders/IOrder'
+import { type IOrderModel } from '../interfaces/orders/IOrderModel'
+import { type IOrderWithRelations } from '../interfaces/orders/IOrderWithRelations'
 
 export default class OrderModel implements IOrderModel {
   private readonly model = Order

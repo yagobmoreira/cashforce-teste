@@ -1,6 +1,6 @@
+import { ICnpj } from 'interfaces/cnpjs/ICnpj'
 import { type Model, type QueryInterface } from 'sequelize'
 import { DataType } from 'sequelize-typescript'
-import { type ICnpj } from 'src/interfaces/cnpjs/ICnpj'
 
 export default {
   async up (queryInterface: QueryInterface) {

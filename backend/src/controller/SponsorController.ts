@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import SponsorService from 'src/services/SponsorService';
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import SponsorService from '../services/SponsorService';
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class SponsorController {
   constructor(

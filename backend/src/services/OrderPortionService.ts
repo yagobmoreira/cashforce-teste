@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import { IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
-import { IOrderPortionModel } from 'src/interfaces/orderportions/IOrderPortionModel'
-import OrderPortionModel from 'src/models/OrderPortionModel'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import { IOrderPortion } from '../interfaces/orderportions/IOrderPortion'
+import { IOrderPortionModel } from '../interfaces/orderportions/IOrderPortionModel'
+import OrderPortionModel from '../models/OrderPortionModel'
 
 export default class OrderPortionService {
   constructor (

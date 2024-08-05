@@ -1,6 +1,6 @@
+import { IOrderPortion } from 'interfaces/orderportions/IOrderPortion'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
 
 export default {
   async up (queryInterface: QueryInterface) {

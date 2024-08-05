@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import OfferService from 'src/services/OfferService';
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import OfferService from '../services/OfferService';
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class OfferController {
   constructor(

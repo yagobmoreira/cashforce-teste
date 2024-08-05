@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import UserService from 'src/services/UserService';
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import UserService from '../services/UserService';
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class UserController {
   constructor(

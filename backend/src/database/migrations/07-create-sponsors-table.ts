@@ -1,6 +1,6 @@
+import { ISponsor } from 'interfaces/sponsors/ISponsor'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type ISponsor } from 'src/interfaces/sponsors/ISponsor'
 
 export default {
   async up (queryInterface: QueryInterface) {

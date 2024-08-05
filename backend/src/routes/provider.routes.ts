@@ -1,4 +1,4 @@
-import ProviderController from "src/controller/ProviderController";
+import ProviderController from "../controller/ProviderController";
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
 

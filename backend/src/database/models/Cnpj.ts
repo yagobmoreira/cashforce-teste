@@ -1,6 +1,6 @@
+import { ICnpj } from 'interfaces/cnpjs/ICnpj'
 import { Optional } from 'sequelize'
 import { Column, DataType, Model, Table, Unique } from 'sequelize-typescript'
-import { type ICnpj } from 'src/interfaces/cnpjs/ICnpj'
 
 interface CnpjCreationAttributes extends Optional<ICnpj, 'id'> {}
 @Table({

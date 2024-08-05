@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import ProviderService from "src/services/ProviderService";
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import ProviderService from "../services/ProviderService";
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class ProviderController {
   constructor(

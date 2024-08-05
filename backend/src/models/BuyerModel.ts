@@ -1,7 +1,7 @@
-import { NewEntity, type ID } from 'src/interfaces'
-import { IBuyerModel } from 'src/interfaces/buyers/IBuyerModel'
-import Buyer from 'src/database/models/Buyer'
-import { IBuyer } from 'src/interfaces/buyers/IBuyer'
+import { NewEntity, type ID } from '../interfaces'
+import { IBuyerModel } from '../interfaces/buyers/IBuyerModel'
+import Buyer from '../database/models/Buyer'
+import { IBuyer } from '../interfaces/buyers/IBuyer'
 
 export default class BuyerModel implements IBuyerModel {
   private readonly model = Buyer

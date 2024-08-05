@@ -1,9 +1,9 @@
-import Cnpj from 'src/database/models/Cnpj'
-import Provider from 'src/database/models/Provider'
-import { NewEntity, type ID } from 'src/interfaces'
-import { ICnpj } from 'src/interfaces/cnpjs/ICnpj'
-import { ICnpjModel } from 'src/interfaces/cnpjs/ICnpjModel'
-import { type IProvider } from 'src/interfaces/providers/IProvider'
+import Cnpj from '../database/models/Cnpj'
+import Provider from '../database/models/Provider'
+import { NewEntity, type ID } from '../interfaces'
+import { ICnpj } from '../interfaces/cnpjs/ICnpj'
+import { ICnpjModel } from '../interfaces/cnpjs/ICnpjModel'
+import { type IProvider } from '../interfaces/providers/IProvider'
 
 export default class CnpjModel implements ICnpjModel {
   private readonly model = Cnpj

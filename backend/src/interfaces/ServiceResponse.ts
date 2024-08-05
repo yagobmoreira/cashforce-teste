@@ -1,4 +1,4 @@
-// src/interfaces/ServiceResponse.ts
+// ../interfaces/ServiceResponse.ts
 
 export interface ServiceMessage { message: string }
 

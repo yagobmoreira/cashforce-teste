@@ -1,9 +1,9 @@
 <script lang="ts">
-import type { Cedente } from "~/src/interfaces/Cedente";
+import type { Cedente } from "~/../interfaces/Cedente";
 import CedenteModal from "./CedenteModal.vue";
-import { useFetchData } from "~/src/composables/useFetchData";
+import { useFetchData } from "../src/composables/useFetchData";
 import { useDateFormat } from "@vueuse/core";
-import type { OrderNf } from "~/src/interfaces/orders/OrderNf";
+import type { OrderNf } from "~/../interfaces/orders/OrderNf";
 
 const initialCedente: Cedente = {
   id: 1,

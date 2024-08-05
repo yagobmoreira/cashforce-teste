@@ -1,5 +1,5 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table, Unique } from 'sequelize-typescript'
-import { type IOrder } from 'src/interfaces/orders/IOrder'
+import { type IOrder } from 'interfaces/orders/IOrder'
 import Buyer from './Buyer'
 import Cnpj from './Cnpj'
 import Provider from './Provider'

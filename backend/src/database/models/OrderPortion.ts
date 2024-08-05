@@ -1,6 +1,6 @@
 import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
-import { type IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
+import { type IOrderPortion } from 'interfaces/orderportions/IOrderPortion'
 import Order from './Order'
 
 interface OrderPortionCreationAttributes extends Optional<IOrderPortion, 'id'> {}

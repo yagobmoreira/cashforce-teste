@@ -5,7 +5,9 @@
   "scripts": {
     "test": "mocha -r tsx ./src/tests/**/**/*.{test,spec}.ts -t 10000 --exit",
     "dev": "tsx watch src/server.ts",
-    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "build": "tsc",
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +37,7 @@
     "chai-http": "4.3.0",
     "mocha": "9.2.1",
     "nyc": "15.1.0",
+    "sequelize-cli": "^6.6.2",
     "sinon": "13.0.1",
     "sinon-chai": "3.7.0",
     "tsx": "^4.16.3",

@@ -1,6 +1,6 @@
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
-import BuyerController from "src/controller/BuyerController";
+import BuyerController from "../controller/BuyerController";
 
 const buyerController = new BuyerController()
 

@@ -1,6 +1,6 @@
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
-import UserController from 'src/controller/UserController'
+import UserController from '../controller/UserController'
 
 const userController = new UserController()
 

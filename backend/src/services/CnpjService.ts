@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import { ICnpj } from 'src/interfaces/cnpjs/ICnpj'
-import { ICnpjModel } from 'src/interfaces/cnpjs/ICnpjModel'
-import CnpjModel from 'src/models/CnpjModel'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import { ICnpj } from '../interfaces/cnpjs/ICnpj'
+import { ICnpjModel } from '../interfaces/cnpjs/ICnpjModel'
+import CnpjModel from '../models/CnpjModel'
 
 export default class CnpjService {
   constructor (

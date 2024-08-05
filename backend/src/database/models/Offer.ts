@@ -1,6 +1,6 @@
 import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
 import { type CreationOptional, type Optional } from 'sequelize'
-import { type IOffer } from 'src/interfaces/offers/IOffer'
+import { type IOffer } from 'interfaces/offers/IOffer'
 import Order from './Order'
 import Sponsor from './Sponsor'
 

@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import { IOffer } from 'src/interfaces/offers/IOffer'
-import { IOfferModel } from 'src/interfaces/offers/IOfferModel'
-import OfferModel from 'src/models/OfferModel'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import { IOffer } from '../interfaces/offers/IOffer'
+import { IOfferModel } from '../interfaces/offers/IOfferModel'
+import OfferModel from '../models/OfferModel'
 
 export default class OfferService {
   constructor (

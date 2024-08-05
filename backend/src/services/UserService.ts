@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import UserModel from 'src/models/UserModel'
-import { IUser } from 'src/interfaces/users/IUser'
-import { IUserModel } from 'src/interfaces/users/IUserModel'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import UserModel from '../models/UserModel'
+import { IUser } from '../interfaces/users/IUser'
+import { IUserModel } from '../interfaces/users/IUserModel'
 
 export default class UserService {
   constructor (

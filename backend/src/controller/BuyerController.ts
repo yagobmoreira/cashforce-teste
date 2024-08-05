@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import BuyerService from 'src/services/BuyerService';
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import BuyerService from '../services/BuyerService';
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class BuyerController {
   constructor(

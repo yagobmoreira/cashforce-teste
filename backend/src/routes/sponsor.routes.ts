@@ -1,4 +1,4 @@
-import SponsorController from "src/controller/SponsorController";
+import SponsorController from "../controller/SponsorController";
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
 

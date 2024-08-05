@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import CnpjService from "src/services/CnpjService";
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import CnpjService from "../services/CnpjService";
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class CnpjController {
   constructor(

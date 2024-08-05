@@ -1,4 +1,4 @@
-import CnpjController from "src/controller/CnpjController";
+import CnpjController from "../controller/CnpjController";
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
 

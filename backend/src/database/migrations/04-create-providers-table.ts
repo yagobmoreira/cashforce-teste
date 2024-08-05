@@ -1,6 +1,6 @@
+import { IProvider } from 'interfaces/providers/IProvider'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IProvider } from 'src/interfaces/providers/IProvider'
 
 export default {
   async up (queryInterface: QueryInterface) {

@@ -1,4 +1,4 @@
-import OrderController from 'src/controller/OrderController'
+import OrderController from '../controller/OrderController'
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
 

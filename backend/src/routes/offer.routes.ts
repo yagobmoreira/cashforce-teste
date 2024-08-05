@@ -1,4 +1,4 @@
-import OfferController from "src/controller/OfferController";
+import OfferController from "../controller/OfferController";
 import { type Request, type Response, Router } from 'express'
 import Validations from '../middlewares/Validations'
 

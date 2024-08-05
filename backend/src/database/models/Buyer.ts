@@ -1,7 +1,7 @@
 import { type CreationOptional, type Optional } from 'sequelize'
 import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
-import { type IBuyer } from 'src/interfaces/buyers/IBuyer'
 import Cnpj from './Cnpj'
+import { IBuyer } from 'interfaces/buyers/IBuyer'
 
 interface BuyerCreationAttributes extends Optional<IBuyer, 'id'> {}
 

@@ -1,6 +1,6 @@
+import { IUser } from 'interfaces/users/IUser'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IUser } from 'src/interfaces/users/IUser'
 
 export default {
   async up (queryInterface: QueryInterface) {

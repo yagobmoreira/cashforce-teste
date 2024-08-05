@@ -1,8 +1,8 @@
-import Provider from 'src/database/models/Provider'
-import User from 'src/database/models/User'
-import { NewEntity, type ID } from 'src/interfaces'
-import { IUser } from 'src/interfaces/users/IUser'
-import { IUserModel } from 'src/interfaces/users/IUserModel'
+import Provider from '../database/models/Provider'
+import User from '../database/models/User'
+import { NewEntity, type ID } from '../interfaces'
+import { IUser } from '../interfaces/users/IUser'
+import { IUserModel } from '../interfaces/users/IUserModel'
 
 export default class UserModel implements IUserModel {
   private readonly model = User

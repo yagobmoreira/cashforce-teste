@@ -1,7 +1,7 @@
-import Sponsor from 'src/database/models/Sponsor'
-import { NewEntity, type ID } from 'src/interfaces'
-import { ISponsor } from 'src/interfaces/sponsors/ISponsor'
-import { ISponsorModel } from 'src/interfaces/sponsors/ISponsorModel'
+import Sponsor from '../database/models/Sponsor'
+import { NewEntity, type ID } from '../interfaces'
+import { ISponsor } from '../interfaces/sponsors/ISponsor'
+import { ISponsorModel } from '../interfaces/sponsors/ISponsorModel'
 
 export default class SponsorModel implements ISponsorModel {
   private readonly model = Sponsor

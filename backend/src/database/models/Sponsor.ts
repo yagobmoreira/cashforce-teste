@@ -1,6 +1,6 @@
 import { CreationOptional, type Optional } from 'sequelize'
 import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
-import { type ISponsor } from 'src/interfaces/sponsors/ISponsor'
+import { type ISponsor } from 'interfaces/sponsors/ISponsor'
 import Cnpj from './Cnpj'
 
 interface SponsorCreationAttributes extends Optional<ISponsor, 'id'> {}

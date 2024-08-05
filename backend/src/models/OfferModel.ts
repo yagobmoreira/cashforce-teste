@@ -1,7 +1,7 @@
-import Offer from 'src/database/models/Offer'
-import { NewEntity, type ID } from 'src/interfaces'
-import { IOffer } from 'src/interfaces/offers/IOffer'
-import { IOfferModel } from 'src/interfaces/offers/IOfferModel'
+import Offer from '../database/models/Offer'
+import { NewEntity, type ID } from '../interfaces'
+import { IOffer } from '../interfaces/offers/IOffer'
+import { IOfferModel } from '../interfaces/offers/IOfferModel'
 
 export default class OfferModel implements IOfferModel {
   private readonly model = Offer

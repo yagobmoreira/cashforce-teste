@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express'
-import OrderPortionService from 'src/services/OrderPortionService';
-import mapStatusHTTP from 'src/utils/mapStatusHTTP';
+import OrderPortionService from '../services/OrderPortionService';
+import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class OrderPortionController {
   constructor(

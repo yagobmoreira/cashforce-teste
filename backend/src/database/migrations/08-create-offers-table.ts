@@ -1,6 +1,6 @@
+import { IOffer } from 'interfaces/offers/IOffer'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IOffer } from 'src/interfaces/offers/IOffer'
 
 export default {
   async up (queryInterface: QueryInterface) {

@@ -1,6 +1,6 @@
 import { CreationOptional, type Optional } from 'sequelize'
 import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript'
-import { type IProvider } from 'src/interfaces/providers/IProvider'
+import { type IProvider } from 'interfaces/providers/IProvider'
 import Cnpj from './Cnpj'
 
 interface ProviderCreationAttributes extends Optional<IProvider, 'id'> {}

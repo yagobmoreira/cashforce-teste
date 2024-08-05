@@ -1,7 +1,7 @@
-import Provider from 'src/database/models/Provider'
-import { NewEntity, type ID } from 'src/interfaces'
-import { type IProvider } from 'src/interfaces/providers/IProvider'
-import { type IProviderModel } from 'src/interfaces/providers/IProviderModel'
+import Provider from '../database/models/Provider'
+import { NewEntity, type ID } from '../interfaces'
+import { type IProvider } from '../interfaces/providers/IProvider'
+import { type IProviderModel } from '../interfaces/providers/IProviderModel'
 
 export default class ProviderModel implements IProviderModel {
   private readonly model = Provider

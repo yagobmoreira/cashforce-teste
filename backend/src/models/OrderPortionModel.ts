@@ -1,7 +1,7 @@
-import OrderPortion from 'src/database/models/OrderPortion'
-import { NewEntity, type ID } from 'src/interfaces'
-import { IOrderPortion } from 'src/interfaces/orderportions/IOrderPortion'
-import { IOrderPortionModel } from 'src/interfaces/orderportions/IOrderPortionModel'
+import OrderPortion from '../database/models/OrderPortion'
+import { NewEntity, type ID } from '../interfaces'
+import { IOrderPortion } from '../interfaces/orderportions/IOrderPortion'
+import { IOrderPortionModel } from '../interfaces/orderportions/IOrderPortionModel'
 
 export default class OrderPortionModel implements IOrderPortionModel {
   private readonly model = OrderPortion

@@ -1,6 +1,6 @@
 import { CreationOptional, type Optional } from 'sequelize'
 import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table, Unique } from 'sequelize-typescript'
-import { type IUser } from 'src/interfaces/users/IUser'
+import { type IUser } from 'interfaces/users/IUser'
 
 interface UserCreationAttributes extends Optional<IUser, 'id'> {}
 

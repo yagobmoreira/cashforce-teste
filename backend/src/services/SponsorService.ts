@@ -1,8 +1,8 @@
-import { type NewEntity } from 'src/interfaces'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import { ISponsor } from 'src/interfaces/sponsors/ISponsor'
-import { ISponsorModel } from 'src/interfaces/sponsors/ISponsorModel'
-import SponsorModel from 'src/models/SponsorModel'
+import { type NewEntity } from '../interfaces'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import { ISponsor } from '../interfaces/sponsors/ISponsor'
+import { ISponsorModel } from '../interfaces/sponsors/ISponsorModel'
+import SponsorModel from '../models/SponsorModel'
 
 export default class SponsorService {
   constructor (

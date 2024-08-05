@@ -1,6 +1,6 @@
+import { IOrder } from 'interfaces/orders/IOrder'
 import { type QueryInterface } from 'sequelize'
 import { DataType, type Model } from 'sequelize-typescript'
-import { type IOrder } from 'src/interfaces/orders/IOrder'
 
 export default {
   async up (queryInterface: QueryInterface) {

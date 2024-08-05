@@ -1,9 +1,9 @@
-import { type NewEntity } from 'src/interfaces'
-import { type IOrder } from 'src/interfaces/orders/IOrder'
-import { type IOrderModel } from 'src/interfaces/orders/IOrderModel'
-import { type IOrderWithRelations } from 'src/interfaces/orders/IOrderWithRelations'
-import { type ServiceMessage, type ServiceResponse } from 'src/interfaces/ServiceResponse'
-import OrderModel from 'src/models/OrderModel'
+import { type NewEntity } from '../interfaces'
+import { type IOrder } from '../interfaces/orders/IOrder'
+import { type IOrderModel } from '../interfaces/orders/IOrderModel'
+import { type IOrderWithRelations } from '../interfaces/orders/IOrderWithRelations'
+import { type ServiceMessage, type ServiceResponse } from '../interfaces/ServiceResponse'
+import OrderModel from '../models/OrderModel'
 
 export default class OrderService {
   constructor (
