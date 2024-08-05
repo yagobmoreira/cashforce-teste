@@ -16,13 +16,13 @@ const isActiveRoute = (path) => {
 
 <template>
   <div class="flex flex-col w-[288px]">
+    <NuxtLink to="/">
     <header
       class="flex items-center gap-2 p-4 hover:scale-[101%] transition cursor-pointer w-[288px]"
     >
-      <NuxtLink to="/">
         <Logo />
-      </NuxtLink>
     </header>
+  </NuxtLink>
 
     <div>
       <div

@@ -39,4 +39,14 @@ export default class OrderService {
     await this.orderModel.update(id, order)
     return { status: 'SUCCESSFUL', data: { message: 'Order updated' } }
   }
+
+  public async deleteOrder(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundOrder = await this.orderModel.findById(id);
+
+    if (foundOrder == null) return { status: 'NOT_FOUND', data: { message: `Order ${id} not found` } }
+
+    await this.orderModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'Order deleted' } };
+  }
 }

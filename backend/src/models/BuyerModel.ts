@@ -2,6 +2,7 @@ import { NewEntity, type ID } from '../interfaces'
 import { IBuyerModel } from '../interfaces/buyers/IBuyerModel'
 import Buyer from '../database/models/Buyer'
 import { IBuyer } from '../interfaces/buyers/IBuyer'
+import { where } from 'sequelize'
 
 export default class BuyerModel implements IBuyerModel {
   private readonly model = Buyer
@@ -31,5 +32,9 @@ export default class BuyerModel implements IBuyerModel {
   async create (data: NewEntity<IBuyer>): Promise<IBuyer> {
     const dbData = await this.model.create(data)
     return dbData
+  }
+
+  async destroy(id: number): Promise<number> {
+    return this.model.destroy({ where: { id } })
   }
 }

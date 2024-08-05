@@ -27,4 +27,9 @@ router.post(
   (req: Request, res: Response) => orderController.createOrder(req, res)
 )
 
+router.delete(
+  '/:id',
+  (req: Request, res: Response) => orderController.deleteOrder(req, res)
+)
+
 export default router

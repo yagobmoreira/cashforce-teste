@@ -27,4 +27,9 @@ router.post(
   (req: Request, res: Response) => cnpjController.createCnpj(req, res)
 )
 
+router.delete(
+  '/:id',
+  (req: Request, res: Response) => cnpjController.deleteCnpj(req, res)
+)
+
 export default router

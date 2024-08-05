@@ -37,4 +37,14 @@ export default class ProviderService {
 
     return { status: 'SUCCESSFUL', data: { message: 'Provider updated' } }
   }
+
+  public async deleteProvider(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundProvider = await this.providerModel.findById(id);
+
+    if (foundProvider == null) return { status: 'NOT_FOUND', data: { message: `Provider ${id} not found` } }
+
+    await this.providerModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'Provider deleted' } };
+  }
 }

@@ -37,4 +37,14 @@ export default class BuyerService {
 
     return { status: 'SUCCESSFUL', data: { message: 'Buyer updated' } }
   }
+
+  public async deleteBuyer(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundBuyer = await this.buyerModel.findById(id);
+
+    if (foundBuyer == null) return { status: 'NOT_FOUND', data: { message: `Buyer ${id} not found` } }
+
+    await this.buyerModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'Buyer deleted' } };
+  }
 }

@@ -27,4 +27,9 @@ router.post(
   (req: Request, res: Response) => buyerController.createBuyer(req, res)
 )
 
+router.delete(
+  '/:id',
+  (req: Request, res: Response) => buyerController.deleteBuyer(req, res)
+)
+
 export default router

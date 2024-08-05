@@ -33,4 +33,8 @@ export default class UserModel implements IUserModel {
     const dbData = await this.model.create(data)
     return dbData
   }
+
+  async destroy(id: number): Promise<number> {
+    return this.model.destroy({ where: { id } })
+  }
 }

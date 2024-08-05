@@ -37,4 +37,14 @@ export default class SponsorService {
 
     return { status: 'SUCCESSFUL', data: { message: 'Sponsor updated' } }
   }
+
+  public async deleteSponsor(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundSponsor = await this.sponsorModel.findById(id);
+
+    if (foundSponsor == null) return { status: 'NOT_FOUND', data: { message: `Sponsor ${id} not found` } }
+
+    await this.sponsorModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'Sponsor deleted' } };
+  }
 }

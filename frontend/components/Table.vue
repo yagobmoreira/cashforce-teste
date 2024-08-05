@@ -94,7 +94,13 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="flex flex-col gap-4">
+  <div v-if=pending class="flex items-center justify-center text-xl h-screen">
+    <span >Carregando dados...</span>
+  </div>
+  <div v-else-if=error class="flex items-center justify-center text-xl h-screen">
+    <span>Algo deu errado. Pedimos desculpas pelo inconveniente. Tente novamente mais tarde.</span>
+  </div>
+  <div v-else class="flex flex-col gap-4">
     <div class="flex px-4 gap-16 items-center mt-5">
       <span class="font-dmsans text-xs uppercase text-zinc-400 w-20"
         >Nota fiscal</span

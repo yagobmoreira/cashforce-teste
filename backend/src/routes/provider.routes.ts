@@ -27,4 +27,9 @@ router.post(
   (req: Request, res: Response) => providerController.createProvider(req, res)
 )
 
+router.delete(
+  '/:id',
+  (req: Request, res: Response) => providerController.deleteProvider(req, res)
+)
+
 export default router

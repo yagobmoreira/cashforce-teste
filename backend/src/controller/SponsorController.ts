@@ -39,4 +39,16 @@ export default class SponsorController {
 
     res.status(200).json(data);
   }
+
+  public async deleteSponsor(req: Request, res: Response) {
+    const id = Number(req.params.id);
+
+    const { status, data } = await this.sponsorService.deleteSponsor(id);
+
+    if (status !== 'SUCCESSFUL') {
+      return res.status(mapStatusHTTP(status)).json(data)
+    }
+
+    res.status(200).json(data);
+  }
 }

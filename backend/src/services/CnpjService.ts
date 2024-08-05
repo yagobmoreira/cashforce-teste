@@ -37,4 +37,14 @@ export default class CnpjService {
 
     return { status: 'SUCCESSFUL', data: { message: 'Cnpj updated' } }
   }
+
+  public async deleteCnpj(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundCnpj = await this.cnpjModel.findById(id);
+
+    if (foundCnpj == null) return { status: 'NOT_FOUND', data: { message: `Cnpj ${id} not found` } }
+
+    await this.cnpjModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'Cnpj deleted' } };
+  }
 }

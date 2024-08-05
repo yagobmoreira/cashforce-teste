@@ -27,4 +27,9 @@ router.post(
   (req: Request, res: Response) => sponsorController.createSponsor(req, res)
 )
 
+router.delete(
+  '/:id',
+  (req: Request, res: Response) => sponsorController.deleteSponsor(req, res)
+)
+
 export default router

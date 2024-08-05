@@ -24,7 +24,7 @@ export default {
         }
       },
       animation: {
-        pulsate: 'pulsate 4s infinite'
+        pulsate: 'pulsate 4s infinite',
       }
     },
   },

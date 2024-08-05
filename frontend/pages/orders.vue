@@ -12,7 +12,7 @@ const loading = ref(false);
       </div>
       <p class="text-sm text-[#727D94] font-dmsans font-normal">Visualize as notas fiscais que você tem.</p>
     </header>
-    <main>
+    <main class="h-screen">
       <section>
         <Table />
       </section>

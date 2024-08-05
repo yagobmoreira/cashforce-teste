@@ -37,4 +37,14 @@ export default class OrderPortionService {
 
     return { status: 'SUCCESSFUL', data: { message: 'OrderPortion updated' } }
   }
+
+  public async deleteOrderPortion(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundOrderPortion = await this.orderPortionModel.findById(id);
+
+    if (foundOrderPortion == null) return { status: 'NOT_FOUND', data: { message: `OrderPortion ${id} not found` } }
+
+    await this.orderPortionModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'OrderPortion deleted' } };
+  }
 }

@@ -37,4 +37,14 @@ export default class OfferService {
 
     return { status: 'SUCCESSFUL', data: { message: 'Offer updated' } }
   }
+
+  public async deleteOffer(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundOffer = await this.offerModel.findById(id);
+
+    if (foundOffer == null) return { status: 'NOT_FOUND', data: { message: `Offer ${id} not found` } }
+
+    await this.offerModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'Offer deleted' } };
+  }
 }

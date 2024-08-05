@@ -39,4 +39,16 @@ export default class ProviderController {
 
     res.status(200).json(data);
   }
+
+  public async deleteProvider(req: Request, res: Response) {
+    const id = Number(req.params.id);
+
+    const { status, data } = await this.providerService.deleteProvider(id);
+
+    if (status !== 'SUCCESSFUL') {
+      return res.status(mapStatusHTTP(status)).json(data)
+    }
+
+    res.status(200).json(data);
+  }
 }

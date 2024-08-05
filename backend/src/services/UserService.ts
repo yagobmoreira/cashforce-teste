@@ -37,4 +37,14 @@ export default class UserService {
 
     return { status: 'SUCCESSFUL', data: { message: 'User updated' } }
   }
+
+  public async deleteUser(id: number): Promise<ServiceResponse<ServiceMessage>> {
+    const foundUser = await this.userModel.findById(id);
+
+    if (foundUser == null) return { status: 'NOT_FOUND', data: { message: `User ${id} not found` } }
+
+    await this.userModel.destroy(id)
+    
+    return { status: 'SUCCESSFUL', data: { message: 'User deleted' } };
+  }
 }
